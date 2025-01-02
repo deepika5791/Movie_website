@@ -7,11 +7,12 @@ import MovieDetails from './components/movieDetail/MovieDetails'
 import MovieLists from './components/movieList/MovieLists'
 
 
+
 const App = () => {
   return (
   <div>
   <div className="App">
-
+   
   <Router>
   <Header />
   <Routes>
@@ -21,6 +22,7 @@ const App = () => {
   <Route path="/*" element={<h1>Error Page</h1>}></Route>
   </Routes>
   </Router>
+ 
   </div>
 
   </div>

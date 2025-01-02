@@ -16,9 +16,9 @@ const Carts = ({ movie }) => {
     <div>
       {isLoading ? (
         <div className="cards">
-          <SkeletonTheme color="#202020" highlightColor="#444">
-           <Skeleton height={300} duration={2} />
-         </SkeletonTheme>
+         <SkeletonTheme color="#d3d3d3" highlightColor="#f1f1f1">
+            <Skeleton height={300} duration={2}  />
+          </SkeletonTheme>
         </div>
       ) : (
         <NavLink
@@ -27,14 +27,19 @@ const Carts = ({ movie }) => {
         >
           <div className="cards">
             <img
-              className="cards__img"
+             /* className="cards__img"
               src={`https://image.tmdb.org/t/p/original${
                 movie ? movie.poster_path : ""
-              }`}
-            />
-            <div className="cards__overlay">
-              <div className="card__title">
-                {movie ? movie.original_title : ""}
+              }`}*/
+              className="cards__img"
+      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+      alt={movie ? movie.original_title : "Movie Poster"}
+             
+
+            /> 
+              <div className="cards__overlay">
+              <div className="card__title" >
+                {movie ? movie.original_title : "" }
               </div>
               <div className="card__runtime">
                 {movie ? movie.release_date : ""}

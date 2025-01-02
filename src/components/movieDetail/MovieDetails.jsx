@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./MovieDetails.css";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const MovieDetails = () => {
   const [currentMovieInfo, setMovie] = useState();
   const { id } = useParams();
+ 
 
   useEffect(() => {
     getData();
     window.scrollTo(0, 0);
-  }, []);
+
+  }, [id]);
 
   const getData = () => {
     fetch(
@@ -18,9 +20,11 @@ const MovieDetails = () => {
       .then((res) => res.json())
       .then((data) => setMovie(data));
       
+      
   };
   return (
     <div>
+     
       <div className="movie">
         <div className="movie__intro">
           <img

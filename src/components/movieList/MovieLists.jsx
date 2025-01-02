@@ -14,9 +14,8 @@ const MovieLists = () => {
   const getData = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${
-       type ? type : "popular"
+        type ? type : "popular"
       }?api_key=40483c9f3c0f0a703a690b4f57c64855&language=en-US`
-     
     )
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
@@ -39,4 +38,3 @@ const MovieLists = () => {
 };
 
 export default MovieLists;
-
