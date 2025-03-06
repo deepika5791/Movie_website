@@ -1,0 +1,71 @@
+footer {
+  background-color: rgb(224, 54, 54);
+  width: 100%;
+  height: auto;
+  padding: 40px 0;
+}
+
+.Footer_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.Navbar {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.Navbar .list {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s;
+  display: inline-block;
+}
+.Email_icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  font-size: 20px;
+}
+.Navbar .list:hover {
+  color: black;
+}
+
+.Social_Contact {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Social_Contact > * {
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.Social_Contact > *:hover {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .Footer_container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .Navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .Social_Contact {
+    gap: 10px;
+  }
+}
