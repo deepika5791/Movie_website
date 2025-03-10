@@ -13,7 +13,6 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((data) => setPopularMovies(data.results));
-      
   }, []);
   return (
     <div>
@@ -31,7 +30,7 @@ const Home = () => {
               to={`/movie/${movie.id}`}
             >
               <div className="posterImage">
-              <img
+                <img
                   src={`https://image.tmdb.org/t/p/original${
                     movie && movie.backdrop_path
                   }`}
@@ -39,8 +38,7 @@ const Home = () => {
               </div>
               <div className="posterImage__overlay">
                 <div className="posterImage__title">
-                  {movie ? movie.original_title : ""} 
-                
+                  {movie ? movie.original_title : ""}
                 </div>
                 <div className="posterImage__runtime">
                   {movie ? movie.release_date : ""}

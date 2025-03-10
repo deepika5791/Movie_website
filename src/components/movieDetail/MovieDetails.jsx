@@ -1,99 +1,115 @@
 import React, { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { useParams } from "react-router-dom";
 import "./MovieDetails.css";
-import { NavLink, useParams } from "react-router-dom";
 
 const MovieDetails = () => {
-  const [currentMovieInfo, setMovie] = useState();
+  const [currentMovieInfo, setMovie] = useState(null);
   const { id } = useParams();
- 
 
   useEffect(() => {
     getData();
     window.scrollTo(0, 0);
-
   }, [id]);
 
-  const getData = () => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=40483c9f3c0f0a703a690b4f57c64855`
-    )
-      .then((res) => res.json())
-      .then((data) => setMovie(data));
-      
-      
+  const getData = async () => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=40483c9f3c0f0a703a690b4f57c64855`
+      );
+      if (!response.ok) throw new Error("Failed to fetch movie details");
+      const data = await response.json();
+      setMovie(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   return (
-    <div>
-     
+    <div className="Detail_Page">
       <div className="movie">
         <div className="movie__intro">
-          <img
-            className="movie__backdrop"
-            src={`https://image.tmdb.org/t/p/original${
-              currentMovieInfo ? currentMovieInfo.backdrop_path : ""
-            }`}
-          />
+          {currentMovieInfo?.poster_path ? (
+            <img
+              className="movie__backdrop"
+              src={`https://image.tmdb.org/t/p/original${currentMovieInfo.poster_path}`}
+              alt="Movie Poster"
+            />
+          ) : (
+            <SkeletonTheme color="#e3e3e3" highlightColor="#e3e3e3">
+              <Skeleton height={500} width={"100%"} duration={2} />
+            </SkeletonTheme>
+          )}
         </div>
+
         <div className="movie__detail">
           <div className="movie__detailLeft">
             <div className="movie__posterBox">
-              <img
-                className="movie__poster"
-                src={`https://image.tmdb.org/t/p/original${
-                  currentMovieInfo ? currentMovieInfo.poster_path : ""
-                }`}
-              />
+              {currentMovieInfo?.poster_path ? (
+                <img
+                  className="movie__poster"
+                  src={`https://image.tmdb.org/t/p/original${currentMovieInfo.poster_path}`}
+                  alt="Movie Poster"
+                />
+              ) : (
+                <SkeletonTheme color="#e3e3e3" highlightColor="#e3e3e3">
+                  <Skeleton height={300} width={300} duration={2} />
+                </SkeletonTheme>
+              )}
             </div>
           </div>
+
           <div className="movie__detailRight">
             <div className="movie__detailRightTop">
               <div className="movie__name">
-                {currentMovieInfo ? currentMovieInfo.original_title : ""}
+                {currentMovieInfo?.original_title || ""}
               </div>
               <div className="movie__tagline">
-                {currentMovieInfo ? currentMovieInfo.tagline : ""}
+                {currentMovieInfo?.tagline || ""}
               </div>
               <div className="movie__rating">
-                {currentMovieInfo ? currentMovieInfo.vote_average : ""}{" "}
-                <i class="fas fa-star" />
+                {currentMovieInfo?.vote_average || ""}{" "}
+                <i className="fas fa-star" />
                 <span className="movie__voteCount">
                   {currentMovieInfo
-                    ? "(" + currentMovieInfo.vote_count + ") votes"
+                    ? `(${currentMovieInfo.vote_count}) votes`
                     : ""}
                 </span>
               </div>
               <div className="movie__runtime">
-                {currentMovieInfo ? currentMovieInfo.runtime + " mins" : ""}
+                {currentMovieInfo?.runtime
+                  ? `${currentMovieInfo.runtime} mins`
+                  : ""}
               </div>
               <div className="movie__releaseDate">
-                {currentMovieInfo
-                  ? "Release date: " + currentMovieInfo.release_date
+                {currentMovieInfo?.release_date
+                  ? `Release date: ${currentMovieInfo.release_date}`
                   : ""}
               </div>
               <div className="movie__genres">
-                {currentMovieInfo && currentMovieInfo.genres
-                  ? currentMovieInfo.genres.map((genre) => (
-                      <>
-                        <span className="movie__genre" id={genre.id}>
-                          {genre.name}
-                        </span>
-                      </>
-                    ))
-                  : ""}
+                {currentMovieInfo?.genres?.map((genre) => (
+                  <span key={genre.id} className="movie__genre">
+                    {genre.name}
+                  </span>
+                ))}
               </div>
             </div>
+
             <div className="movie__detailRightBottom">
               <div className="synopsisText">Synopsis</div>
-              <div>{currentMovieInfo ? currentMovieInfo.overview : ""}</div>
+              <div>{currentMovieInfo?.overview || ""}</div>
             </div>
           </div>
         </div>
+
         <div className="movie__links">
           <div className="movie__heading">Useful Links</div>
-          {currentMovieInfo && currentMovieInfo.homepage && (
+          {currentMovieInfo?.homepage && (
             <a
               href={currentMovieInfo.homepage}
               target="_blank"
+              rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
             >
               <p>
@@ -103,40 +119,36 @@ const MovieDetails = () => {
               </p>
             </a>
           )}
-          {currentMovieInfo && currentMovieInfo.imdb_id && (
+          {currentMovieInfo?.imdb_id && (
             <a
-              href={"https://www.imdb.com/title/" + currentMovieInfo.imdb_id}
+              href={`https://www.imdb.com/title/${currentMovieInfo.imdb_id}`}
               target="_blank"
+              rel="noopener noreferrer"
               style={{ textDecoration: "none" }}
             >
               <p>
                 <span className="movie__imdbButton movie__Button">
-                  IMDb<i className="newTab fas fa-external-link-alt"></i>
+                  IMDb <i className="newTab fas fa-external-link-alt"></i>
                 </span>
               </p>
             </a>
           )}
         </div>
-        <div className="movie__heading">Production companies</div>
+
+        <div className="movie__heading">Production Companies</div>
         <div className="movie__production">
-          {currentMovieInfo &&
-            currentMovieInfo.production_companies &&
-            currentMovieInfo.production_companies.map((company) => (
-              <>
-                {company.logo_path && (
-                  <span className="productionCompanyImage">
-                    <img
-                      className="movie__productionComapany"
-                      src={
-                        "https://image.tmdb.org/t/p/original" +
-                        company.logo_path
-                      }
-                    />
-                    <span>{company.name}</span>
-                  </span>
-                )}
-              </>
-            ))}
+          {currentMovieInfo?.production_companies?.map((company) =>
+            company.logo_path ? (
+              <span key={company.id} className="productionCompanyImage">
+                <img
+                  className="movie__productionCompany"
+                  src={`https://image.tmdb.org/t/p/original${company.logo_path}`}
+                  alt={company.name}
+                />
+                <span>{company.name}</span>
+              </span>
+            ) : null
+          )}
         </div>
       </div>
     </div>

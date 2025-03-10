@@ -1,8 +1,10 @@
 footer {
-  background-color: rgb(224, 54, 54);
+  background-color: #f6c800;
   width: 100%;
   height: auto;
   padding: 40px 0;
+  position: sticky;
+  bottom: 0;
 }
 
 .Footer_container {
@@ -22,7 +24,7 @@ footer {
 
 .Navbar .list {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 18px;
   transition: color 0.3s;
   display: inline-block;
@@ -31,9 +33,13 @@ footer {
   margin-right: 5px;
   vertical-align: middle;
   font-size: 20px;
+  color: black;
+}
+.Email_icon :hover {
+  color: white;
 }
 .Navbar .list:hover {
-  color: black;
+  color: white;
 }
 
 .Social_Contact {
@@ -45,12 +51,12 @@ footer {
 
 .Social_Contact > * {
   font-size: 24px;
-  color: white;
+  color: black;
   transition: color 0.3s;
 }
 
 .Social_Contact > *:hover {
-  color: black;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {

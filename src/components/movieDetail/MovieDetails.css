@@ -129,9 +129,11 @@
   margin-bottom: 4rem;
 }
 
-.movie__productionComapany {
-  width: 200px;
-  margin: 2rem;
+.movie__productionCompany {
+  width: 150px;
+  max-height: 100px;
+  object-fit: contain;
+  margin: 5rem;
 }
 
 .productionCompanyImage {
