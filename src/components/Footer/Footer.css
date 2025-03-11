@@ -3,8 +3,9 @@ footer {
   width: 100%;
   height: auto;
   padding: 40px 0;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  left: 0;
 }
 
 .Footer_container {
@@ -29,6 +30,7 @@ footer {
   transition: color 0.3s;
   display: inline-block;
 }
+
 .Email_icon {
   margin-right: 5px;
   vertical-align: middle;

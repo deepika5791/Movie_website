@@ -1,57 +1,3 @@
-/* .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: black;
-  padding: 10px;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid #f6c800;
-}
-
-.headerLeft,
-.headerRight {
-  display: flex;
-  align-items: center;
-}
-
-a > span {
-  margin: 0 30px;
-  font-size: 1.3rem;
-  cursor: pointer;
-  color: white;
-}
-
-.nav-link {
-  text-decoration: none;
-  padding: 10px;
-  transition: color 0.3s ease;
-}
-
-.nav-link span {
-  color: white;
-}
-
-.nav-link:hover span {
-  color: yellow;
-}
-
-.nav-link.active span {
-  color: yellow;
-  font-weight: bold;
-}
-
-.header__icon {
-  width: 80px;
-  cursor: pointer;
-}
-
-.user__avatar {
-  font-size: 2rem;
-} */
-
 .header {
   position: fixed;
   top: 0;
@@ -102,7 +48,6 @@ a > span {
   cursor: pointer;
 }
 
-/* Media Query for Samsung Galaxy S20 Ultra (412px x 915px) */
 @media (max-width: 412px) {
   .header {
     padding: 5px;
