@@ -113,7 +113,7 @@ const MovieDetails = () => {
         </div>
 
         <div className="movie__links">
-          <div className="movie__heading">Useful Links</div>
+          {/* <div className="movie__heading">Useful Links</div> */}
           {currentMovieInfo?.homepage && (
             <a
               href={currentMovieInfo.homepage}
@@ -146,18 +146,21 @@ const MovieDetails = () => {
 
         <div className="movie__heading">Production Companies</div>
         <div className="movie__production">
-          {currentMovieInfo?.production_companies?.map((company) =>
-            company.logo_path ? (
-              <span key={company.id} className="productionCompanyImage">
-                <img
-                  className="movie__productionCompany"
-                  src={`https://image.tmdb.org/t/p/original${company.logo_path}`}
-                  alt={company.name}
-                />
-                <span>{company.name}</span>
-              </span>
-            ) : null
-          )}
+          {currentMovieInfo?.production_companies?.map((company) => (
+            <span key={company.id} className="productionCompanyImage">
+              <img
+                style={{ backgroundColor: "white" }}
+                className="movie__productionCompany"
+                src={
+                  company.logo_path
+                    ? `https://image.tmdb.org/t/p/original${company.logo_path}`
+                    : "https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-blank-avatar-modern-vector-png-image_40962406.jpg"
+                }
+                alt={company.name}
+              />
+              <span>{company.name}</span>
+            </span>
+          ))}
         </div>
       </div>
     </div>

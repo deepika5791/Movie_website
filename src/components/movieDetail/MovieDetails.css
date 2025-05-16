@@ -8,14 +8,20 @@
 }
 
 .movie__intro {
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  box-shadow: rgb(56, 53, 53) 0px 20px 30px -10px;
+  opacity: 0.5px;
 }
 
 .movie__backdrop {
-  width: 100%;
-  height: 500px;
+  margin-top: 68px;
+  height: 90vh;
+  width: 1600px;
   object-fit: cover;
-  object-position: 0 35%;
+  object-position: 50% 10%;
 }
 
 .movie__detail {
@@ -24,6 +30,10 @@
   display: flex;
   position: relative;
   bottom: 225px;
+  left: 130px;
+
+  display: flex;
+  justify-content: right;
 }
 
 .movie__detailLeft {
