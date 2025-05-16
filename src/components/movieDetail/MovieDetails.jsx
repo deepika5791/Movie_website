@@ -80,7 +80,7 @@ const MovieDetails = () => {
               </div>
               <div className="movie__rating">
                 {currentMovieInfo?.vote_average || ""}{" "}
-                <i className="fas fa-star" id="star" />
+                {/* <i className="fas fa-star" id="star" /> */}
                 <span className="movie__voteCount">
                   {currentMovieInfo
                     ? `(${currentMovieInfo.vote_count}) votes`
