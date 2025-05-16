@@ -54,7 +54,16 @@ const MovieDetails = () => {
                 />
               ) : (
                 <SkeletonTheme baseColor="#282828" highlightColor="#282828">
-                  <Skeleton height={300} width={300} duration={2} />
+                  <Skeleton
+                    height={300}
+                    width={300}
+                    duration={2}
+                    style={{
+                      borderColor: "grey",
+                      borderWidth: "1px",
+                      borderStyle: "solid",
+                    }}
+                  />
                 </SkeletonTheme>
               )}
             </div>
