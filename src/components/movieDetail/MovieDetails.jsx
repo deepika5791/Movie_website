@@ -37,7 +37,7 @@ const MovieDetails = () => {
               alt="Movie Poster"
             />
           ) : (
-            <SkeletonTheme color="#e3e3e3" highlightColor="#e3e3e3">
+            <SkeletonTheme baseColor="#282828" highlightColor="#282828">
               <Skeleton height={500} width={"100%"} duration={2} />
             </SkeletonTheme>
           )}
@@ -53,7 +53,7 @@ const MovieDetails = () => {
                   alt="Movie Poster"
                 />
               ) : (
-                <SkeletonTheme color="#e3e3e3" highlightColor="#e3e3e3">
+                <SkeletonTheme baseColor="#282828" highlightColor="#282828">
                   <Skeleton height={300} width={300} duration={2} />
                 </SkeletonTheme>
               )}

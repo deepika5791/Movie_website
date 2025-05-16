@@ -10,7 +10,7 @@ const MovieLists = () => {
   const { type } = useParams();
 
   useEffect(() => {
-    setIsLoading(true); // Show skeleton first
+    setIsLoading(true);
     fetch(
       `https://api.themoviedb.org/3/movie/${
         type ? type : "popular"
@@ -19,7 +19,7 @@ const MovieLists = () => {
       .then((res) => res.json())
       .then((data) => {
         setMovieList(data.results);
-        setIsLoading(false); // Hide skeleton after all data is loaded
+        setIsLoading(false);
       });
   }, [type]);
 

@@ -1,6 +1,10 @@
 .App {
   background-color: black;
-  color: white;
+  color: #282828;
   font-family: sans-serif;
   margin-bottom: 100px;
+}
+
+body {
+  background-color: black;
 }
