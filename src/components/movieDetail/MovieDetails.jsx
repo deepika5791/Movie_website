@@ -38,7 +38,7 @@ const MovieDetails = () => {
             />
           ) : (
             <SkeletonTheme baseColor="#282828" highlightColor="#282828">
-              <Skeleton width={"100%"} height={500} duration={2} />
+              <Skeleton width={1600} height={500} duration={2} />
             </SkeletonTheme>
           )}
         </div>
@@ -55,7 +55,8 @@ const MovieDetails = () => {
               ) : (
                 <SkeletonTheme baseColor="#282828" highlightColor="#282828">
                   <Skeleton
-                    height={300}
+                    className="skeleton"
+                    height={400}
                     width={300}
                     duration={2}
                     style={{
@@ -79,7 +80,7 @@ const MovieDetails = () => {
               </div>
               <div className="movie__rating">
                 {currentMovieInfo?.vote_average || ""}{" "}
-                <i className="fas fa-star" />
+                <i className="fas fa-star" id="star" />
                 <span className="movie__voteCount">
                   {currentMovieInfo
                     ? `(${currentMovieInfo.vote_count}) votes`
@@ -106,7 +107,8 @@ const MovieDetails = () => {
             </div>
 
             <div className="movie__detailRightBottom">
-              <div className="synopsisText">Synopsis</div>
+              {/* {<div className="synopsisText">Synopsis</div>} */}
+
               <div>{currentMovieInfo?.overview || ""}</div>
             </div>
           </div>
