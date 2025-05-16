@@ -26,7 +26,7 @@ const Home = () => {
         >
           {popularMovies.map((movie) => (
             <NavLink
-              style={{ textDecoration: "none", color: "#282828" }}
+              style={{ textDecoration: "none", color: "white" }}
               to={`/movie/${movie.id}`}
             >
               <div className="posterImage">
