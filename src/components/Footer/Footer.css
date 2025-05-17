@@ -1,11 +1,7 @@
 footer {
   background-color: #f6c800;
   width: 100%;
-  height: auto;
   padding: 40px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
 }
 
 .Footer_container {
@@ -37,9 +33,10 @@ footer {
   font-size: 20px;
   color: black;
 }
-.Email_icon :hover {
+.Email_icon:hover {
   color: white;
 }
+
 .Navbar .list:hover {
   color: white;
 }

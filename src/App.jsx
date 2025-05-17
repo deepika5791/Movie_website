@@ -9,23 +9,22 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
-    <>
-      <div>
-        <div className="App">
-          <Router>
-            <Header />
+    <Router>
+      <div className="App">
+        <Header />
 
-            <Routes>
-              <Route index element={<Home />}></Route>
-              <Route path="movie/:id" element={<MovieDetails />}></Route>
-              <Route path="movies/:type" element={<MovieLists />}></Route>
-              <Route path="/*" element={<h1>Error Page</h1>}></Route>
-            </Routes>
-            <Footer />
-          </Router>
-        </div>
+        <main>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="movie/:id" element={<MovieDetails />} />
+            <Route path="movies/:type" element={<MovieLists />} />
+            <Route path="/*" element={<h1>Error Page</h1>} />
+          </Routes>
+        </main>
+
+        <Footer />
       </div>
-    </>
+    </Router>
   );
 };
 
