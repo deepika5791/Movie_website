@@ -25,8 +25,9 @@ const Footer = () => {
             <FaGithub />
           </NavLink>
 
-          <FaInstagram />
-
+          <NavLink>
+            <FaInstagram />
+          </NavLink>
           <NavLink
             to="https://www.linkedin.com/in/deepika-tripathi-5617562a1/"
             target="_blank"
